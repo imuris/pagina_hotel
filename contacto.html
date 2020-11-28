@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable-no,maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bienes Raices</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles2.css">
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body BACKGROUND="img/headerr.jpg">
+    <? php
+    include "coneccionC.php";
+    echo "hola estas";
+    ?>
+    <header class="site-header">
+        <div class="contenedor contenido-header">
+            <div class="barra">
+                <div class="form-header">
+                        <font class="form-tittle"><b>MK<span>Hotel's</b></span></font>
+                    </div>
+                <div class="mobile-menu">
+                    <a href="#navegacion">
+                        <img src="img/barras.svg" alt="Icono Menu">
+                    </a>
+                </div>
+ 
+                <nav id="navegacion" class="navegacion">
+                    <a href="index.html"><b>Home</b></a>
+                    <a href="anuncios.html"><b>Suites</b></a>
+                    <a href="blog.html"><b>Eventos</b></a>
+                    <a href="contacto.html"><b>Contacto</b></a>
+                    <a href="empleo.html"><b>Empleo</b></a>
+                </nav>
+            </div>
+        </div> <!-- contenedor -->
+    </header>
+
+    
+    
+    
+    <div class="contenedorr">
+        <form action="" class="form">
+            <div class="form-header">
+                <h1 class="form-tittle">R<span>eservación</span></h1>
+            </div>
+
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" id="nombre" class="form-input" placeholder="Escriba su nombre">
+
+            <label for="telefono" class="form-label">Telefono:</label>
+            <input type="tel" id="telefono" class="form-input" min="0">
+
+            <label for="correo" class="form-label">Correo Electronico:</label>
+            <input type="email" id="correo" class="form-input" placeholder="Escriba su correo electronico">
+            <label for="habitacion" class="form-label">Tipo de habitacion</label>
+            <select id="habitacion"class="form-input">
+                <option value="" disabled selected>--seleccione--</option>
+                <option value="habitacion1">penthouse suite vista al mar</option>
+                <option value="habitacion2">queen room con vista parcial al mar</option>
+                <option value="habitacion3">king room con acceso auditivo</option>
+                <option value="habitacion4">two bedroom suite con cocina vista a la ciudad</option>
+                <option value="habitacion5">queen room de facil movilidad</option>
+                <option value="habitacion6">premire suite frente a la ciudad</option>
+
+            </select>
+            
+            <label for="entrada" class="form-label">Fecha de reservacion de entrada:</label>
+            <input type="date" id="entrada" class="form-input">
+
+            <label for="salida" class="form-label">Fecha de reservacion de salida:</label>
+            <input type="date" id="salida" class="form-input">
+
+            <label for="pago" class="form-label">Forma de pago</label>
+            <select id="pago"class="form-input">
+                <option value="" disabled selected>--seleccione--</option>
+                <option value="forma1">efectivo</option>
+                <option value="forma2">Tarjeta de credito</option>
+                <option value="forma3">Tarjeta de debito</option>
+            </select>
+            
+            
+            <input type="submit" class="btn-submit" value="Reservar">
+
+        </form>
+    </div>
+
+    <footer class="site-footer seccion">
+        <div class="contenedor contenedor-footer">
+            <nav class="navegacion">
+                <a href="index.html"><b>Home</b></a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="anuncios.html"><b>Suites</b></a>
+                <a href="blog.html"><b>Eventos</b></a>
+                <a href="contacto.html"><b>Contacto</b></a>
+                <a href="empleo.html"><b>Empleo</b></a>
+            </nav>
+            <p class="copyright">By: Imuris Garcia, Kristina Lopez, Rafael Martinez, Ernesto Barcenas &copy; </p>
+        </div>
+        </div>
+    </footer>
+    <? php
+    // Create connection
+$conn = new mysqli("localhost", "root","","reservacion");
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "INSERT INTO MyGuests (firstname, lastname, email)
+VALUES ('John', 'Doe', 'john@example.com')";
+
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable-no,maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bienes Raices</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles2.css">
+</head>
+<body BACKGROUND="img/fondo.jpg">
+
+    <header class="site-header">
+        <div class="contenedor contenido-header">
+            <div class="barra">
+                <div class="form-header">
+                        <font class="form-tittle"><b>MK<span>Hotel's</b></span></font>
+                    </div>
+                <div class="mobile-menu">
+                    <a href="#navegacion">
+                        <img src="img/barras.svg" alt="Icono Menu">
+                    </a>
+                </div>
+
+                <nav id="navegacion" class="navegacion">
+                    <a href="index.html"><b>Home</b></a>
+                    <a href="anuncios.html"><b>Suites</b></a>
+                    <a href="blog.html"><b>Eventos</b></a>
+                    <a href="contacto.php"><b>Contacto</b></a>
+                    <a href="nosotros.html"><b>Empleo</b></a>
+                </nav>
+            </div>
+        </div> <!-- contenedor -->
+    </header>
+
+    
+    
+    
+    <div class="contenedorr">
+        <form action="" class="form">
+            <div class="form-header">
+                <h1 class="form-tittle">E<span>mpleo</span></h1>
+            </div>
+
+            <label for="nombre" class="form-label">Nombre:</label>
+            <input type="text" id="nombre" class="form-input" placeholder="Escriba su nombre" name="nombre">
+
+            <label for="apellido_Paterno" class="form-label">Apellido paterno:</label>
+            <input type="text" id="apellido_Paterno" class="form-input"placeholder="Escriba su apellido paterno" name="apellido_Paterno">
+
+            <label for="apellido_Materno" class="form-label">Apellido materno:</label>
+            <input type="text" id="apellido_Materno" class="form-input" placeholder="Escriba su apellido materno electronico" name="apellido_Materno">
+            <label for="telefono" class="form-label">Telefono:</label>
+            <input type="tel" id="telefono" class="form-input" min="0" name="telefono">
+
+            <label for="correo" class="form-label">Correo Electronico:</label>
+            <input type="email" id="correo" class="form-input" placeholder="Escriba su correo electronico" name="correo">
+
+            <label for="direccion" class="form-label">Direccion:</label>
+            <input type="text" id="direccion" class="form-input" placeholder="Escriba su direccion" name="direccion">
+
+            <label for="edad" class="form-label">Edad:</label>
+            <input type="number" id="edad" class="form-input" min="18" name="edad">
+
+            <label for="estado_Civil" class="form-label">Estado civil</label>
+            <select id="estado_Civil"class="form-input" name="estado_Civil">
+                <option value="" disabled selected>--seleccione--</option>
+                <option value="forma1">Casado</option>
+                <option value="forma2">Soltero</option>
+                <option value="forma3">Viudo</option>
+            </select>
+            <label for="estudios" class="form-label">Estudios</label>
+            <select id="estudios"class="form-input" name="estudios">
+                <option value="" disabled selected>--seleccione--</option>
+                <option value="forma1">Primaria</option>
+                <option value="forma2">Secundaria</option>
+                <option value="forma3">Preparatoria</option>
+                <option value="forma3">Universidad</option>
+            </select>
+            
+            <input type="submit" class="btn-submit" value="Mandar solicitud" name="mandar">
+
+        </form>
+    </div> 
+
+    <footer class="site-footer seccion">
+        <div class="contenedor contenedor-footer">
+            <nav class="navegacion">
+                <a href="index.html"><b>Home</b></a>
+                <a href="nosotros.html"><b>Nosotros</b></a>
+                <a href="anuncios.html"><b>Suites</b></a>
+                <a href="blog.html"><b>Eventos</b></a>
+                <a href="contacto.php"><b>Contacto</b></a>
+                <a href="empleo.php"><b>Empleo</b></a>
+            </nav>
+            <p class="copyright">By: Imuris Garcia, Kristina Lopez, Rafael Martinez, Ernesto Barcenas &copy; </p>
+        </div>
+        </div>
+    </footer>
+    <?php
+        if(isset($_POST['mandar']))
+    {   
+        $nombre = $_POST['nombre'];
+        $apellido_Paterno = $_POST['apellido_Paterno'];
+        $apellido_Materno = $_POST['apellido_Materno'];
+        $telefono = $_POST['telefono'];
+        $correo = $_POST['correo'];
+        $direccion = $_POST['direccion'];
+        $edad = $_POST['edad'];
+        $estado_Civil = $_POST['estado_Civil'];
+        $estudios = $_POST['estudios'];
+
+
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "provedores_servicios";
+
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "INSERT INTO infromacion_personal_trabajador (idIFT, nombre,apellido_Paterno, apellido_Materno, telefono, correo, direccion, edad, estado_Civil,estudios)
+        VALUES ('','$nombre', '$apellido_Paterno', '$apellido_Materno', '$telefono', '$correo','$direccion','$edad', '$estado_Civil','$estudios')";
+
+        if ($conn->query($sql) === TRUE) {
+          echo "New record created successfully";
+        } else {
+          echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+        $conn->close();
+    }
+    ?>
+</body>
+</html>
