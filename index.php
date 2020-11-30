@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/styles2.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
      
 </head>
 <body background="img/luces.jpg">
@@ -114,137 +115,74 @@
 
 
     </div></scroll-page>
-    <scroll-page id="anuncios">
-    <div class="imagen-contacto3">
-        <section class="contenedorrr3">
-        <div class="contenedor contenido-contacto">     
-    <br>
-    <main class="seccion contenedor">
-        <h2 class="fw-300 centrar-texto"><span class="form-tittle">.</span><br>Elegir Una Habitacion</h2>
-        
-        <br>
-
-        <div class="contenedor-anuncios">
-            <div class="anuncio">
-                <img src="img/penthouse.gif" alt="Anuncio casa en el lago">
-                <div class="contenido-anuncio">
-                    <h3>PENTHOUSE SUITE VISTA AL MAR</h3><br>
-                    <p>Descubra el lujo sin igual en estas amplias suites. Cuenta con una sala de estar, comedor y patio privado con piscina de inmersión.
-                        <ul>
-                        <li>
-                            <p>Cama King-size</p>
-                        </li>
-                        <li>
-                            <p>Bañera de pie y ducha grande</p>
-                        </li>
-                        <li>
-                            <p> Suite de 301.19 metros cuadrados</p>
-                        </li>
-                    </ul>               
-                       
-                        </p>
-                    <p class="precio">$449USD</p>
-
-                    <ul class="iconos-caracteristicas">
-                        <li>
-                            <img src="img/icono_wc.svg" alt="icono wc">
-                            <p>3</p>
-                        </li>
-                        <li>
-                            <img src="img/icono_dormitorio.svg" alt="icono habitaciones">
-                            <p>1</p>
-                        </li>
-                    </ul>
+   
 
 
-                    <a href="contacto.html" class="boton boton-amarillo d-block tamaño-boton">Reservar</a>
-                </div>
-            </div>
 
-            <div class="anuncio">
-                <img src="img/queenroom.gif" alt="Anuncio casa de lujo">
-                <div class="contenido-anuncio">
-                    <h3>QUEEN ROOM CON VISTA PARCIAL AL MAR</h3>
-                    <p><br>Estas habitaciones modernas cuentan con una sala relajante y baño amplio.
-                        <ul>
-                        <li>
-                            <p>Dos camas Queen-size</p>
-                        </li>
-                        <li>
-                            <p>Cabina de ducha</p>
-                        </li>
-                        <li>
-                            <p> Habitación de 65 metros cuadrado</p>
-                        </li>
-                    </ul>       
-                        
-                        
-                        </p>
-                    <p class="precio">$293USD</p>
-                    <ul class="iconos-caracteristicas">
-                        <li>
-                            <img src="img/icono_wc.svg" alt="icono wc">
-                            <p>1</p>
-                        </li>
-                        
-                        <li>
-                            <img src="img/icono_dormitorio.svg" alt="icono habitaciones">
-                            <p>2</p>
-                        </li>
-                    </ul>
 
-                    <a href="contacto.html" class="boton boton-amarillo d-block">Reservar</a>
-                </div>
-            </div>
 
-            <div class="anuncio">
-                <img src="img/auditivaroom.gif" alt="Anuncio casa con alberca">
-                <div class="contenido-anuncio">
-                    <h3>KING ROOM CON ACCESO AUDITIVO</h3>
-                    <p>Amplio espacio para relajarse en estas elegantes habitaciones. Cuenta con alarmas visuales y dispositivos de notificación.
-                        <ul>
-                        <li>
-                            <p>Cama King-size y sofá cama</p>
-                        </li>
-                        <li>
-                            <p>Ducha roll-in</p>
-                        </li>
-                        <li>
-                            <p>Habitación de 60 metros cuadrados</p>
-                        </li>
-                    </ul>       
-                        
-                        
-                        </p>
-                    <p class="precio">$293USD</p>
-                    <ul class="iconos-caracteristicas">
-                        <li>
-                            <img src="img/icono_wc.svg" alt="icono wc">
-                            <p>1</p>
-                        </li>
-                        
-                        <li>
-                            <img src="img/icono_dormitorio.svg" alt="icono habitaciones">
-                            <p>1</p>
-                        </li>
-                    </ul>
 
-                    <a href="contacto.html" class="boton boton-amarillo d-block">Reservar</a>
-                </div>
-            </div>
-        </div>
 
-        <div class="ver-todas">
-            <a href="anuncios.html" class="boton boton-verde">Ver Todas</a>
-        </div>
-    </main>
-    </div>
-        </section>
-       </div></scroll-page>
-    
+
 <?php
-echo "<table style='border: solid 1px black;'>";
- echo "<tr><th>Id</th><th>Firstname</th><th>Lastname</th></tr>";
+echo "<table  class='table table-striped table-dark' style='border: solid 1px black;'>";
+echo "<tr><th>Id</th><th>Firstname</th><th>Lastname</th></tr>";
+
+
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "reservacion";
+
+try {
+  $conn2 = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+  $conn2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $stmt2 = $conn2->prepare("SELECT * FROM categoria_habitacion");
+  $stmt2->execute();
+
+  // set the resulting array to associative
+  $result2 = $stmt2->setFetchMode(PDO::FETCH_ASSOC);
+  foreach(new TableRows(new RecursiveArrayIterator($stmt2->fetchAll())) as $k2=>$v2) {
+    echo $v2;
+  }
+} catch(PDOException $e) {
+  echo "Error: " . $e->getMessage();
+}
+$conn2 = null;
+echo "</table>";
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table   class='table table-striped table-dark' align="center" width="100%" bgcolor="white
+"><tr><td align="center"> 
+
+<?php
+echo "<table class='table table-striped table-dark'>"; 
+
 
 class TableRows extends RecursiveIteratorIterator {
     function __construct($it) {
@@ -252,7 +190,7 @@ class TableRows extends RecursiveIteratorIterator {
     }
 
     function current() {
-        return "<td style='width: 150px; border: 1px solid black;'>" . parent::current(). "</td>";
+    return "<td>" . parent::current() . "</td>";
     }
 
     function beginChildren() {
@@ -272,7 +210,14 @@ $dbname = "eventos";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT * FROM evento");
+    $stmt = $conn->prepare("SELECT 
+
+    nombreEvento,
+    fecha,
+    hora,
+    lugar,
+    publico,
+    descripcion FROM evento");
     $stmt->execute();
 
     // set the resulting array to associative
@@ -287,7 +232,7 @@ catch(PDOException $e) {
 }
 $conn = null;
 echo "</table>";
-?>
+?></td></tr></table>
     
         
         <div class="imagen-contacto">
