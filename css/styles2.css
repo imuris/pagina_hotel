@@ -22,7 +22,7 @@ body{
 .form{
     font-weight: normal;
     font-family: sans-serif;
-    color: #ff851b;
+    color:#007bff;
     
     padding: 14px 0;
 }
@@ -30,7 +30,7 @@ body{
 .form-header{
     font-weight: normal;
     font-family: sans-serif;
-    color: #ff851b;
+    color: #007bff;
     
     padding: 14px 0;
 }
@@ -38,7 +38,7 @@ body{
 .form-tittle{
     font-weight: normal;
     font-family: sans-serif;
-    color: #ff851b;
+    color: #007bff;
     text-align:center;
     padding: 14px 0;
 }
@@ -56,31 +56,45 @@ body{
 .form-tittle span{
     color:#fff;
 }
+.contenedorrr7{
+    background:rgba(0,0,0,.8);
+    width: 100%;
+    height: 80rem;
+   
+   
+}
 .contenedorrr4{
-    background:rgba(0,0,0,.7);
+    background:rgba(0,0,0,.8);
     width: 100%;
     height: 40rem;
    
    
 }
 .contenedorrr3{
-    background:rgba(0,0,0,.8);
+    background:rgba(0,0,0,.9);
     width: 100%;
-    height: 120rem;
+    height: 70rem;
+   
+   
+}
+.contenedorrr6{
+    background:rgba(0,0,0,.9);
+    width: 100%;
+    height: 60rem;
    
    
 }
 .contenedorrr2{
     background:rgba(0,0,0,.5);
     width: 100%;
-    height: 62rem;
+    height: 58rem;
    
    
 }
 .contenedorrr{
-    background:rgba(0,0,0,.5);
+    background:rgba(0,0,0,.9);
     width: 100%;
-    height: 62rem;
+    height: 73rem;
    
    
 }
@@ -108,25 +122,25 @@ body{
 
 .contenedorr{
     display: block;
-    color: #ff851b;
+    color:#007bff;
     font-size: 16px;
-    font-family: Roboto;
+    font-family: lato;
     position: relative;
 }
 
 .form{
     display: block;
-    color: #ff851b;
+    color:#007bff;
     font-size: 16px;
-    font-family: Roboto;
+    font-family: lato;
     position: relative;
 }
 
 .form-label{
     display: block;
-    color: #ff851b;
+    color:#4d6986;
     font-size: 16px;
-    font-family: Roboto;
+    font-family: lato;
     position: relative;
 }
 
@@ -134,42 +148,42 @@ body{
     background: rgba(0,0,0,.6);
     border:none;
     outline: none;
-    border-bottom: 2px solid #ff851b;
+    border-bottom: 2px solid#4d6986;
     width: 100%;
     padding:12px;
     margin-bottom:20px;
     border-radius:2px;
     font-size:14px;
     color:#FFF;
-    font-family:Roboto;
+    font-family:lato;
 }
 
 .form{
     background: rgba(0,0,0,.6);
     border:none;
     outline: none;
-    border-bottom: 2px solid #ff851b;
+    border-bottom: 2px solid#4d6986;
     width: 100%;
     padding:12px;
     margin-bottom:20px;
     border-radius:2px;
     font-size:14px;
     color:#FFF;
-    font-family:Roboto;
+    font-family:lato;
 }
 
 .form-input{
     background: rgba(0,0,0,.6);
     border:none;
     outline: none;
-    border-bottom: 2px solid #ff851b;
+    border-bottom: 2px solid#4d6986;
     width: 100%;
     padding:12px;
     margin-bottom:20px;
     border-radius:2px;
     font-size:14px;
     color:#FFF;
-    font-family:Roboto;
+    font-family:lato;
 }
 
 
@@ -205,8 +219,8 @@ body{
 
 .btn-submit{
     width: 100%;
-    font-family:Roboto;
-    background: #ff851b;
+    font-family:lato;
+    background:#007bff;
     font-size: 16px;
     border:none;
     color: #fff;

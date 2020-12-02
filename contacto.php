@@ -25,11 +25,12 @@
                 </div>
 
                 <nav id="navegacion" class="navegacion">
-                    <a href="index.html"><b>Home</b></a>
-                    <a href="anuncios.html"><b>Suites</b></a>
-                    <a href="blog.html"><b>Eventos</b></a>
-                    <a href="nosotros.html"><b>Contacto</b></a>
-                    <a href="empleo.php"><b>Empleo</b></a>
+                       <a href="index.php"><b>Inicio</b></a>
+                    <a href="index.php"><b>Nosotros</b></a>
+                    <a href="index.php"><b>Habitaciones</b></a>
+                    <a href="index.php"><b>Eventos</b></a>
+                    <a href="galeria.html"><b>Galeria</b></a>
+                    <a href="contacto.php"><b>Reservacion</b></a>
                 </nav>
             </div>
         </div> <!-- contenedor -->
@@ -53,8 +54,8 @@
 
             <label for="correo" class="form-label">Correo Electronico:</label>
             <input type="email" id="correo" class="form-input" placeholder="Escriba su correo electronico" name="correo">
-            <label for="habitacion" class="form-label">Tipo de habitacion</label>
-            <select id="habitacion"class="form-input" name="habitacion">
+            <label for="idCategoria" class="form-label">Tipo de habitacion</label>
+            <select id="idCategoria"class="form-input" name="idCategoria">
                 <option value="" disabled selected>--seleccione--</option>
                 <option value="habitacion1">penthouse suite vista al mar</option>
                 <option value="habitacion2">queen room con vista parcial al mar</option>
@@ -71,8 +72,8 @@
             <label for="salida" class="form-label">Fecha de reservacion de salida:</label>
             <input type="date" id="salida" class="form-input" name="salida">
 
-            <label for="pago" class="form-label">Forma de pago</label>
-            <select id="pago"class="form-input" name="pago">
+            <label for="idPago" class="form-label">Forma de pago</label>
+            <select id="idPago"class="form-input" name="idPago">
                 <option value="" disabled selected>--seleccione--</option>
                 <option value="1">efectivo</option>
                 <option value="2">Tarjeta de credito</option>
@@ -88,15 +89,15 @@
     <footer class="site-footer seccion">
         <div class="contenedor contenedor-footer">
             <nav class="navegacion">
-                <a href="index.html"><b>Home</b></a>
-                <a href="nosotros.html"><b>Nosotros</b></a>
-                <a href="anuncios.html"><b>Suites</b></a>
-                <a href="blog.html"><b>Eventos</b></a>
-                <a href="contacto.php"><b>Contacto</b></a>
-                <a href="empleo.php"><b>Empleo</b></a>
+                <a href="index.php"><b>Inicio</b></a>
+                <a href="index.php"><b>Nosotros</b></a>
+                <a href="index.php"><b>Habitaciones</b></a>
+                <a href="index.php"><b>Eventos</b></a>
+                <a href="galeria.html"><b>Galeria</b></a>
+                <a href="contacto.php"><b>Reservacion</b></a>
+                
             </nav>
-            <p class="copyright">By: Imuris Garcia, Kristina Lopez, Rafael Martinez, Ernesto Barcenas &copy; </p>
-        </div>
+            <p class="copyright">By: Imuris Garcia, Kristina Lopez, Ernesto Barcenas &copy; </p>
         </div>
     </footer>
     <?php
@@ -107,7 +108,8 @@
         $correo = $_POST['correo'];
         $entrada = $_POST['entrada'];
         $salida = $_POST['salida'];
-        $metodo = $_POST['pago'];
+        $idCategoria=$_POST['idCategoria']
+        $idPago = $_POST['idPago'];
 
 
         $servername = "localhost";
@@ -123,8 +125,8 @@
           die("Connection failed: " . $conn->connect_error);
         }
 
-        $sql = "INSERT INTO reservacion (idReservacion, nombre, telefono, correo, entrada, salida,precioTotal,idmetodo)
-        VALUES ('','$nombre', '$telefono', '$correo', '$entrada', '$salida','','$metodo')";
+        $sql = "INSERT INTO reservacion (idReservacion, nombre, telefono, correo, entrada, salida,idcategoria,idPago)
+        VALUES ('','$nombre', '$telefono', '$correo', '$entrada', '$salida','','')";
 
         if ($conn->query($sql) === TRUE) {
           echo "New record created successfully";

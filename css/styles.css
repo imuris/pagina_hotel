@@ -75,11 +75,11 @@ h4 {
     cursor: pointer;
 }
 .boton-amarillo {
-    background-color:  #ab4b00;
+    background-color: #007bff;
 }
 
 .boton-verde {
-    background-color:  #ab4b00;
+    background-color: #007bff;
 }
 
 
@@ -100,16 +100,16 @@ h4 {
 .form-tittle{
     font-weight: normal;
     font-family: sans-serif;
-    color: #ff851b;
+    color: #007bff;
     text-align:center;
     padding: 14px 0;
     font-size: 4rem;
-    color: darkorange;
+    color: #007bff;
 }
 .form-header{
     font-weight: normal;
     font-family: sans-serif;
-    color: #ff851b;
+    color: #007bff;
     padding: 14px 0;
     font-size: 4rem;
     color: darkorange;
@@ -186,7 +186,7 @@ h4 {
     }
 }
 .navegacion a:hover {
-    color: orange;
+    color: #007bff;
 }
 
 /** Mobile Menu **/
@@ -288,8 +288,16 @@ border-radius: 2px; }
 }
 
 /** Contacto Home **/
-.imagen-contacto3 {
+.imagen-contacto4{
     background-image: url(../img/nosotros.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 50rem;
+    display: flex;
+    align-items: center;
+}
+.imagen-contacto3 {
+   
     background-position: center center;
     background-size: cover;
     height: 120rem;
@@ -300,7 +308,7 @@ border-radius: 2px; }
     
     background-position: center center;
     background-size: cover;
-    height: 62rem;
+    height: 50rem;
     display: flex;
     align-items: center;
 }
@@ -450,4 +458,7 @@ border-radius: 2px; }
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.texto{
+    font-size: 100rem;
 }

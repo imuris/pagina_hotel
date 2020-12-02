@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
      
 </head>
-<body background="img/luces.jpg">
+<body background="img/lucess.jpg">
     
     <header class="site-header inicio">
-        <div class="contenedor contenido-header contenedorrr5">
+        <div class="contenedor contenido-header ">
             <div class="barra">
                 <div class="form-header">
-                    <font class="form-tittle"><b>MK<span>Hotel's</b></span></font>
+                    <font class="form-tittle"><b>MK<span >Hotel's</b></span></font>
                 </div>
 
                 <div class="mobile-menu">
@@ -28,27 +28,29 @@
                 </div>
 
                 <nav  class="navegacion">
-                    <a href="index.html"><b>Inicio</b></a>
+                    <a href="index.php"><b>Inicio</b></a>
                     <a href="#nosotros"><b>Nosotros</b></a>
                     <a href="#anuncios"><b>Habitaciones</b></a>
                     <a href="#blog"><b>Eventos</b></a>
+                    <a href="galeria.html"><b>Galeria</b></a>
                     <a href="contacto.php"><b>Reservacion</b></a>
+                    
+                    
                 </nav>
 
             </div>
-            <h1>Hotel 5 ✭✭✭✭✭ <br>
+            <h1 style="font-size: 4rem;">Hotel 5 ✭✭✭✭✭ <br>
                 Quedate Con MK<span class="nombre">hotel's</span></h1>
         </div> <!-- contenedor -->
     </header>
     <scroll-container>
     <scroll-page id="nosotros">
-    <div class="imagen-contacto2">
+    <div style="background:white;">
         <section class="contenedorrr">
-        <div class="contenedor contenido-contacto">
-            
+        <div class=" contenido-contacto">
     <br>
-    <section class="contenedor seccion">
-        <h2 class="fw-300 centrar-texto">Más Sobre Nosotros<br></h2>
+    <section class="seccion">
+        <h2 class="fw-300 centrar-texto"style="font-size: 5rem; color: white;"><br>Más Sobre Nosotros<br><br></h2>
 
         <div class="iconos-nosotros">
             <div >
@@ -56,13 +58,13 @@
                 
             </div>
 
-            <div class="icono">
+            <div class="icono" style="color: white;">
                 
                
                 <p>
                 El Hotel MKhotel's Miami goza de vistas hacia una playa de arena blanca y aguas turquesas, ideal para disfrutar de unos días de relax o simplemente para escaparte unas horas a nuestro centro de wellness. El hotel cuenta con el servicio de Todo Incluido 24h, por lo que podrás tomar baños de sol disfrutando de las tres piscinas y jacuzzi mientras te refrescas en los diferentes bares de la terraza.</p>
                 <div>
-                    <a href="nosotros.html" class="boton boton-verde">Ver mas</a>
+                    <a href="#" class="boton boton-verde">Ver mas</a>
                 </div>
             </div>
 
@@ -100,13 +102,13 @@
             <div class="icono">
                 <img src="img/icono10.png" alt="Icono Mejor Precio" width="80">
              
-            </div>
+            </div><br>
 
             
 
  </p>
             </div>
-        </div>
+        </div><br><br><br><br>
     </section>
         </div>
     </section>
@@ -115,18 +117,75 @@
 
 
     </div></scroll-page>
-   
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="imagen1" data-slide-to="0" class="active"></li>
+    <li data-target="imagen2" data-slide-to="1"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/nosotros.jpg" class="d-block w-100" alt="imagen1" height="300px">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/nosotros.jpg" class="d-block w-100" alt="imagen2">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
 
-
-
-
-
+<scroll-page id="anuncios">
+    <div style="background: white">
+        <div class="contenedorrr3">
+<h2 class="fw-300 centrar-texto" style="font-size: 5rem; color: white;"><br>Habitaciones<br><br></h2>
 
 
 <?php
-echo "<table  class='table table-striped table-dark' style='border: solid 1px black;'>";
-echo "<tr><th>Id</th><th>Firstname</th><th>Lastname</th></tr>";
+
+class Cards extends RecursiveIteratorIterator {
+  function __construct($it) {
+    parent::__construct($it, self::LEAVES_ONLY);
+  }
+
+  function current() {
+    return "<center>".parent::current()."<br></center>";
+  }
+
+  function beginChildren() {
+    echo "<div class='card text-white bg-dark' style='width:31.3%; margin:1%; '><br>
+    <h1 style='font:Lato; font-size:20px;'>";
+  }
+
+  function endChildren() {
+    echo "</h1>
+    
+    <center><a href='contacto.php'style='width:80%; height:35px; font-size:15px;' class='btn btn-primary'><b>Reservar</a></b></center><br>
+</div><br>";
+  }
+}
 
 
 
@@ -138,68 +197,87 @@ $dbname = "reservacion";
 try {
   $conn2 = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
   $conn2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $stmt2 = $conn2->prepare("SELECT * FROM categoria_habitacion");
+  $stmt2 = $conn2->prepare("SELECT tipoHabitacion,camas,banos,tamano,precio FROM categoria_habitacion");
   $stmt2->execute();
 
   // set the resulting array to associative
   $result2 = $stmt2->setFetchMode(PDO::FETCH_ASSOC);
-  foreach(new TableRows(new RecursiveArrayIterator($stmt2->fetchAll())) as $k2=>$v2) {
+  echo "<div class='d-flex flex-wrap'>";
+
+  foreach(new Cards(new RecursiveArrayIterator($stmt2->fetchAll())) as $k2=>$v2) {
     echo $v2;
   }
+  echo "</div>";
 } catch(PDOException $e) {
   echo "Error: " . $e->getMessage();
 }
 $conn2 = null;
 echo "</table>";
-?>
+?></div></div>
+
+
+  <div class="imagen-contacto">
+                <section class="contenedorrr4">
+                <div class="contenedor contenido-contacto">     
+            <br>
+            <section>
+        <div class="contenedor contenido-contacto">
+            <h2 style="font-size: 3rem; color: white;"><br>Reserva ahora!!</h2>
+            <p>Reserva tu propia habitacion para estas vacaciones!</p>
+            <a href="contacto.php" class="boton boton-amarillo">Reservar</a>
+        </div>
+    </section>
+    </div></scroll-page>
 
 
 
+            
+                </div>
+                </section>
+               </div>
 
+<div style="background: white; height: 64rem;">
+   
+<table   class=' contenedorrr6' align="center" width="100%" style="height: 64rem;"><tr><td align="center"> 
+    <scroll-page id="blog">
+<h2 class="fw-300 centrar-texto" style="font-size: 5rem; color: white;"><br>Eventos<br><br></h2>
 
+  
 
+ 
+ 
+   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table   class='table table-striped table-dark' align="center" width="100%" bgcolor="white
-"><tr><td align="center"> 
 
 <?php
-echo "<table class='table table-striped table-dark'>"; 
+
+
 
 
 class TableRows extends RecursiveIteratorIterator {
-    function __construct($it) {
-        parent::__construct($it, self::LEAVES_ONLY);
-    }
+ function __construct($it) {
+    parent::__construct($it, self::LEAVES_ONLY);
+  }
 
-    function current() {
-    return "<td>" . parent::current() . "</td>";
-    }
+  function current() {
+    return "<center>".parent::current()."<br></center>";
+  }
 
-    function beginChildren() {
-        echo "<tr>";
-    }
+  function beginChildren() {
+    echo "<div class='card text-white bg-dark' style='width:31.3%; margin:1%; '><br>
+    <h1 style='font:Lato; font-size:20px;'>";
+  }
 
-    function endChildren() {
-        echo "</tr>" . "\n";
-    }
+  function endChildren() {
+    echo "<br></h1>
+    
+    </div><br><br>";
+  }
+ 
+    
+
+
+
 }
 
 $servername = "localhost";
@@ -216,75 +294,69 @@ try {
     fecha,
     hora,
     lugar,
-    publico,
-    descripcion FROM evento");
+    publico FROM evento");
     $stmt->execute();
 
     // set the resulting array to associative
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    echo "<div class='d-flex flex-wrap'>";
 
     foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
         echo $v;
     }
+     echo "</div>";
 }
 catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
 $conn = null;
 echo "</table>";
-?></td></tr></table>
+?><br><br><br><br></td></tr></table></scroll-page></div>
     
+                 
+  
+
+  
+ 
+
+
+<br><br>
+
         
-        <div class="imagen-contacto">
-                <section class="contenedorrr4">
-                <div class="contenedor contenido-contacto">     
-            <br>
-            <section>
-        <div class="contenedor contenido-contacto">
-            <h2><br>Reserva ahora!!</h2>
-            <p>Reserva tu propia habitacion para estas vacaciones!</p>
-            <a href="contacto.html" class="boton boton-amarillo">Reservar</a>
-        </div>
-    </section>
-    </div>
-
-
-
-            
-                </div>
-                </section>
-               </div>
+      
 
     <div class="imagen-contacto2">
-        <section class="contenedorrr2">
+        <section class="contenedorrr2" style="height: 60rem">
         <div class="contenedor contenido-contacto">
             
-    <br>
-    <section class="contenedor seccion">
+    <br><br><br><br><br><br><br><br>
+    <section class="contenedor">
         
 
         <div class="iconos-nosotros"><br>
-            <div class="icono"><br><br>
+            <div class="icono">
                 <img src="img/icono1.jpeg" width="120"alt="Icono Seguridad">
-                <h3>Amables, limpieza y <br>ubicación<br>✭✭✭✭✭</h3>
-                <p>Pasamos excelentes días en el Hotel, todos muy amables, en especial Stephan, las habitaciones muy limpias y bonitas, la ubicación formidable.</p>
+                <h3><br>Amables, limpieza y <br>ubicación<br><br>✭✭✭✭✭<br></h3>
+                <p><br>Pasamos excelentes días en el Hotel, todos muy amables, en especial Stephan, las habitaciones muy limpias y bonitas, la ubicación formidable.</p><br><br>
             </div>
 
-            <div class="icono"><br><br>
+            <div class="icono">
                 <img src="img/icono2.jpeg" width="120"alt="Icono Mejor Precio">
-                <h3>Verdadero oasis para dormir con mucho silencio.<br>✭✭✭✭✭</h3>
-                <p>Muy agradable, silencioso para un buen descanso, buena ubicacion.</p>
+                <h3><br>Verdadero oasis para dormir con mucho silencio.<br><br>✭✭✭✭✭<br></h3>
+                <p><br>Muy agradable, silencioso para un buen descanso, buena ubicacion.</p>
             </div>
 
-            <div class="icono"><br><br>
+            <div class="icono">
                 <img src="img/icono3.jpeg" width="120" = alt="Icono a Tiempo">
-                <h3>Excelentes instalaciones y ubicación<br>✭✭✭✭✭</h3>
-                <p>Muy recomendable, todo excelente, las habitaciónes nuevas y las camas son cómodisimas, todo cerca y la ubicación es de lo mejor.<br><br></p>
+                <h3><br>Excelentes instalaciones y ubicación<br><br>✭✭✭✭✭<br></h3>
+                <p><br>Muy recomendable, todo excelente, las habitaciónes nuevas y las camas son cómodisimas, todo cerca y la ubicación es de lo mejor.<br><br></p>
             </div>
-        </div>
+        </div><br><br>
     </section><br><br><br>
-    </section>
-    </div>
+    </section><br><br>
+
+    </div><br><br>
+
 
 
     </div>
@@ -303,14 +375,15 @@ echo "</table>";
     <footer class="site-footer seccion">
         <div class="contenedor contenedor-footer">
             <nav class="navegacion">
-                <a href="index.html"><b>Home</b></a>
-                <a href="nosotros.html">Nosotros</a>
-                <a href="anuncios.html"><b>Suites</b></a>
-                <a href="blog.html"><b>Eventos</b></a>
-                <a href="contacto.php"><b>Contacto</b></a>
-                <a href="empleo.php"><b>Empleo</b></a>
+                <a href="index.php"><b>Inicio</b></a>
+                <a href="#nosotros"><b>Nosotros</b></a>
+                <a href="#anuncios"><b>Habitaciones</b></a>
+                <a href="#blog"><b>Eventos</b></a>
+                <a href="galeria.html"><b>Galeria</b></a>
+                <a href="contacto.php"><b>Reservacion</b></a>
+                
             </nav>
-            <p class="copyright">By: Imuris Garcia, Kristina Lopez, Rafael Martinez, Ernesto Barcenas &copy; </p>
+            <p class="copyright">By: Imuris Garcia, Kristina Lopez, Ernesto Barcenas &copy; </p>
         </div>
     </footer>
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
