@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/styles2.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
      
 </head>
 <body background="img/lucess.jpg">
@@ -63,11 +64,14 @@
                
                 <p>
                 El Hotel MKhotel's Miami goza de vistas hacia una playa de arena blanca y aguas turquesas, ideal para disfrutar de unos días de relax o simplemente para escaparte unas horas a nuestro centro de wellness. El hotel cuenta con el servicio de Todo Incluido 24h, por lo que podrás tomar baños de sol disfrutando de las tres piscinas y jacuzzi mientras te refrescas en los diferentes bares de la terraza.</p>
-                <div>
-                    <a href="#" class="boton boton-verde">Ver mas</a>
+                <div id="app">
+                    <p v-if="activada">{{titulo}}</p>
+
+                    <button @click="cambiarEstado()" v-if="!activada">Ver Más</button>
+                    <button @click="cambiarEstado()" v-if="activada">Ver Menos</button>
+                </div>
                 </div>
             </div>
-
             <div >
                 
             </div>
@@ -165,6 +169,7 @@
 
 <?php
 
+
 class Cards extends RecursiveIteratorIterator {
   function __construct($it) {
     parent::__construct($it, self::LEAVES_ONLY);
@@ -175,8 +180,10 @@ class Cards extends RecursiveIteratorIterator {
   }
 
   function beginChildren() {
+
     echo "<div class='card text-white bg-dark' style='width:31.3%; margin:1%; '><br>
     <h1 style='font:Lato; font-size:20px;'>";
+  
   }
 
   function endChildren() {
@@ -186,8 +193,6 @@ class Cards extends RecursiveIteratorIterator {
 </div><br>";
   }
 }
-
-
 
 $servername = "localhost";
 $username = "root";
@@ -386,6 +391,7 @@ echo "</table>";
             <p class="copyright">By: Imuris Garcia, Kristina Lopez, Ernesto Barcenas &copy; </p>
         </div>
     </footer>
+    <script src="app.js"></script>
      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
